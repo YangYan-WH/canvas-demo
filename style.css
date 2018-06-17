@@ -1,0 +1,27 @@
+#canvas {
+    background: green;
+    display: block;
+}
+
+body {
+    margin: 0;
+    /* position: relative; */
+}
+
+.actions {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    
+}
+
+.actions>#brush {
+    display: none;
+}
+.actions.x>#brush{
+    display: inline-block;
+    /* vertical-align: top; */
+}
+.actions.x>#eraser {
+    display: none;
+}

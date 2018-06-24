@@ -14,6 +14,28 @@ function page(canvas) {
 }
 var context = canvas.getContext('2d');
 
+red.onclick = function(){
+    context.fillStyle = 'red';
+    context.strokeStyle='red';
+    red.classList.add('active');
+    green.classList.remove('active');
+    blue.classList.remove('active')
+}
+green.onclick = function(){
+    context.strokeStyle = 'green'
+    red.classList.remove('active');
+    green.classList.add('active');
+    blue.classList.remove('active')
+}
+
+blue.onclick = function(){
+    context.strokeStyle = 'blue'
+    red.classList.remove('active');
+    green.classList.remove('active');
+    blue.classList.add('active')
+}
+
+
 var using = false
 var lastPoint = {
     x: undefined,
@@ -114,7 +136,7 @@ if(document.body.ontouchstart !== undefined){
 
 function drawCircle(x, y, radius) {
     context.beginPath()
-    context.fillStyle = 'black'
+    // context.fillStyle = 'black'
     context.arc(x, y, radius, 0, Math.PI * 2)
     context.fill()
 }
@@ -133,10 +155,12 @@ var eraserEnabled = false;
 // var eraser=document.getElementById('eraser')
 eraser.onclick = function () {
     eraserEnabled = true;
-    actions.className = 'actions x'
+    // actions.className = 'actions x'
+    eraser.classList.add('active')
+    pen.classList.remove('active')
 }
-brush.onclick = function () {
+pen.onclick = function () {
     eraserEnabled = false;
-    actions.className = 'actions'
+    pen.classList.add('active')
+    eraser.classList.remove('active')
 }
-

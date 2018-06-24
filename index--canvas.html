@@ -7,14 +7,26 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>canvas</title>
     <link rel="stylesheet" href="./style.css">
+    <script src='//at.alicdn.com/t/font_718902_gymkfbzt4k5.js'></script>
 </head>
 
 <body>
     <canvas id="canvas">
     </canvas>
     <div id="actions" class="actions">
-        <button id="eraser">橡皮檫</button>
-        <button id="brush">画笔</button>
+        <svg id="pen" class="icon active">
+            <use xlink:href="#icon-pen"></use>
+        </svg>
+        <svg id="eraser" class="icon">
+            <use xlink:href="#icon-eraser"></use>
+        </svg>
+        <!-- <button id="eraser">橡皮檫</button>
+        <button id="brush">画笔</button> -->
+        <ul class="colors">
+            <li class="red active" id="red"></li>
+            <li class="green" id="green"></li>
+            <li class="blue" id="blue"></li>
+        </ul>
     </div>
 
     <script src="./main.js"></script>

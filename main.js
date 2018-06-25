@@ -1,4 +1,5 @@
 var canvas = document.getElementById('canvas');
+var lineWidth = 5;
 page(canvas);
 
 window.onresize = function () {
@@ -34,8 +35,24 @@ blue.onclick = function(){
     green.classList.remove('active');
     blue.classList.add('active')
 }
-
-
+thin.onclick=function(){
+    lineWidth=5
+}
+thick.onclick=function(){
+    lineWidth=10
+}
+clear.onclick=function(){
+    // console.log(canvas);
+    context.clearRect(0,0,canvas.width,canvas.height);
+}
+save.onclick=function(){
+    var url=canvas.toDataURL('image/png');
+    var a=document.createElement('a');
+    document.body.appendChild(a);
+    a.href=url;
+    a.download = 'my canvas';
+    a.click();
+}
 var using = false
 var lastPoint = {
     x: undefined,
@@ -58,7 +75,7 @@ if(document.body.ontouchstart !== undefined){
                 'y': y
             }
         }
-        console.log(x,y)
+        // console.log(x,y)
     }
     canvas.ontouchmove=function(aaa){
         var x = aaa.touches[0].clientX
@@ -82,7 +99,7 @@ if(document.body.ontouchstart !== undefined){
                 lastPoint = newPoint //前一条线的借宿位置是后一条线的起始位置
             }
         }
-        console.log(aaa)
+        // console.log(aaa)
     }
     canvas.ontouchend=function(){
         using = false
@@ -144,7 +161,8 @@ function drawCircle(x, y, radius) {
 function drawLine(x1, y1, x2, y2) {
     context.beginPath();
     context.moveTo(x1, y1); //起点
-    context.lineWidth = 5
+    // context.lineWidth = 5
+    context.lineWidth = lineWidth
     context.lineTo(x2, y2) //终点
     context.stroke()
     context.closePath()

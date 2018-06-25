@@ -5,7 +5,7 @@ ul,ol{list-style: none;}
     display: block;
 }
 body {
-    margin: 0;
+    overflow: hidden;
 }
 .icon {
     width: 1em; height: 1em;
@@ -24,6 +24,9 @@ body {
     height: 1.5em;
     transition: all 0.5s;
     margin:0 10px;
+}
+.actions svg:hover{
+    cursor: pointer;
 }
 /* .actions>#brush {
     display: none;
@@ -67,5 +70,23 @@ body {
 }
 .colors>.active{
     transform: scale(1.2);
-    
+}
+.actions .sizes{
+    position: fixed;
+    right:50px;
+    top: 10px;
+}
+.actions .sizes li{
+    margin:20px 0;
+    /* border: 3px solid red; */
+}
+.actions .sizes .thin{
+    height: 0;
+    width: 30px;
+    border-top: 3px solid black;
+}
+.actions .sizes .thick{
+    height: 0;
+    width: 30px;
+    border-top: 6px solid black;
 }
